@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>toUpperCase App</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&family=Roboto&display=swap" rel="stylesheet">
+    <style type="text/css">body{margin:40px
+      auto;max-width:750px;line-height:1.6;font-size:18px;color:#444;padding:0
+      10px}h1,h2,h3{line-height:1.2;
+      font-family: 'Playfair Display', serif;}p{font-family: 'Roboto', sans-serif;}</style>
+  </head>
+  <body>
+    <img src="{{ url_for('static', filename='img/esteco.png') }}" style="display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 30%;"/>
+    <h1>ESTECO Internship - Giovanni de Maria</h1>
+    <h2>Demo App with a GKE cluster documented with Terraform (see <a href="https://github.com/giovannidemaria/MyK8sInfrastructure_terraform">here</a>)</h2>
+    <h2>April - May 2023</h2>
+    <hr>
+
+    <p>This demo applies the toUpperCase() method to a specific user-defined string.</p>
+    <p>This functionality is provided thanks to 2 deployments (Frontend and Backend) and 2 services (1 Load Balancer and 1 ClusterIP) for exposing the deployments on the internet.</p>
+    <form method="post" action="/">
+      <label for="url"><p>Word to which the toUpperCase() method is applied:</p></label>
+      <input type="text" id="url" name="url">
+      <input type="submit" value="Send request">
+    </form>
+    {% if response %}
+    <hr>
+    <h2>Response:</h2>
+    <pre>{{ response }}</pre>
+    {% endif %}
+  </body>
+</html>
